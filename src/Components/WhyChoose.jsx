@@ -8,8 +8,8 @@ function WhyChoose() {
         Why Choose NullDebt?
       </h1>
       <div className="flex items-center justify-center gap-10">
-        <div className="w-[280px] h-auto rounded-xl border-solid border-[1px] border-[#F0F1F3] box_shadow flex flex-col items-center py-10 px-2">
-          <div className="w-[80px] h-[80px] rounded-full bg-transparent border-solid border-[1px] border-gray-400 flex items-center justify-center">
+        <div className="w-[280px] bg-white h-auto rounded-xl flex flex-col items-center py-10 px-2">
+          <div className="w-[80px] h-[80px] rounded-full bg-transparent  flex items-center justify-center">
             <FaRocket size={45} className="fill-[#2A6877]"/>
           </div>
           <h1 className="text-[#1B424C] font-medium text-xl mt-[20px]">
@@ -20,8 +20,8 @@ function WhyChoose() {
             options to match your situation.
           </p>
         </div>
-        <div className="w-[280px] h-auto rounded-xl border-solid border-[1px] border-[#F0F1F3] box_shadow flex flex-col items-center py-10 px-2">
-          <div className="w-[80px] h-[80px] rounded-full bg-transparent border-solid border-[1px] border-gray-400 flex items-center justify-center">
+        <div className="w-[280px] bg-white h-auto rounded-xl flex flex-col items-center py-10 px-2">
+          <div className="w-[80px] h-[80px] rounded-full bg-transparent  flex items-center justify-center">
           <FaHandshake size={45} className="fill-[#2A6877]"/>
           </div>
           <h1 className="text-[#1B424C] font-medium text-xl mt-[20px]">
@@ -32,8 +32,8 @@ function WhyChoose() {
             understand time is of the essence
           </p>
         </div>
-        <div className="w-[280px] h-auto rounded-xl border-solid border-[1px] border-[#F0F1F3] box_shadow flex flex-col items-center py-10 px-2">
-          <div className="w-[80px] h-[80px] rounded-full bg-transparent border-solid border-[1px] border-gray-400 flex items-center justify-center">
+        <div className="w-[280px] bg-white h-auto rounded-xl flex flex-col items-center py-10 px-2">
+          <div className="w-[80px] h-[80px] rounded-full bg-transparent  flex items-center justify-center">
           <FaBalanceScale size={45} className="fill-[#2A6877]"/>
           </div>
           <h1 className="text-[#1B424C] font-medium text-xl mt-[20px]">
@@ -44,8 +44,8 @@ function WhyChoose() {
             get.
           </p>
         </div>
-        <div className="w-[280px] h-auto rounded-xl border-solid border-[1px] border-[#F0F1F3] box_shadow flex flex-col items-center py-10 px-2">
-          <div className="w-[80px] h-[80px] rounded-full bg-transparent border-solid border-[1px] border-gray-400 flex items-center justify-center">
+        <div className="w-[280px] bg-white h-auto rounded-xl flex flex-col items-center py-10 px-2">
+          <div className="w-[80px] h-[80px] rounded-full bg-transparent  flex items-center justify-center">
           <FaMoneyCheckDollar size={45} className="fill-[#2A6877]"/>
           </div>
           <h1 className="text-[#1B424C] font-medium text-xl mt-[20px] text-center">

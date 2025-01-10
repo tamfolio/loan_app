@@ -2,7 +2,8 @@ import { FaRegCheckCircle, FaSearchLocation } from "react-icons/fa";
 import { FaCalendarDays } from "react-icons/fa6";
 import { BsDatabaseFillLock } from "react-icons/bs";
 import { useState } from "react";
-import { FaCircleDollarToSlot,FaArrowRight } from "react-icons/fa6";
+import { FaCircleDollarToSlot, FaArrowRight } from "react-icons/fa6";
+import { Offcanvas, OffcanvasBody, OffcanvasHeader } from "reactstrap";
 function Homepage() {
   const [loanAmount, setLoanAmount] = useState("");
   const [income, setIncome] = useState("");
@@ -54,7 +55,10 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="w-[600px] flex items-center justify-center flex-col border-solid border-[1px] border-[#F0F1F3] rounded-xl px-5 py-10">
+      <div
+        className="w-[400px] flex items-center justify-center flex-col border-solid border-[1px] border-[#c9cacd] rounded-xl px-5 py-10"
+        style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}
+      >
         <FaCircleDollarToSlot size={100} className="mb-10" />
         <h1 className="text-center text-2xl text-[#2a6877] font-semibold mb-5">
           How much do you need?
@@ -62,13 +66,15 @@ function Homepage() {
 
         <div className="flex flex-col">
           <div className="flex mb-2">
-            <span className="flex items-center justify-center w-[50px] h-auto border-[1px] border-solid border-gray-200 font-bold">$</span>
+            <span className="flex items-center justify-center w-[50px] h-auto border-[1px] border-solid border-gray-200 font-bold">
+              $
+            </span>
             <input
               type="text"
               placeholder="$50,000"
               value={loanAmount}
               onChange={(e) => handleChange(e, setLoanAmount)}
-              className="w-[400px] border-[1px] border-solid border-gray-200 rounded-md p-2 outline-none"
+              className="w-[300px] border-[1px] border-solid border-gray-200 rounded-md p-2 outline-none"
             />
           </div>
 
@@ -76,8 +82,20 @@ function Homepage() {
             type="submit"
             className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3"
           >
-            Get Started <FaArrowRight/>
+            Get Started <FaArrowRight />
           </button>
+          <Offcanvas
+            direction="top"
+            scrollable
+            toggle={function noRefCheck() {}}
+          >
+            <OffcanvasHeader toggle={function noRefCheck() {}}>
+              Offcanvas
+            </OffcanvasHeader>
+            <OffcanvasBody>
+              <strong>This is the Offcanvas body.</strong>
+            </OffcanvasBody>
+          </Offcanvas>
         </div>
       </div>
       {/* <div>
