@@ -3,10 +3,14 @@ import { FaCalendarDays } from "react-icons/fa6";
 import { BsDatabaseFillLock } from "react-icons/bs";
 import { useState } from "react";
 import { FaCircleDollarToSlot, FaArrowRight } from "react-icons/fa6";
-import { Offcanvas, OffcanvasBody, OffcanvasHeader } from "reactstrap";
+import { Modal, ModalBody, ModalHeader } from "reactstrap";
+import { CgClose } from "react-icons/cg";
 function Homepage() {
   const [loanAmount, setLoanAmount] = useState("");
   const [income, setIncome] = useState("");
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
 
   const handleChange = (e, setState) => {
     // Get raw input value and strip non-numeric characters except commas
@@ -81,21 +85,162 @@ function Homepage() {
           <button
             type="submit"
             className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3"
+            onClick={toggle}
           >
             Get Started <FaArrowRight />
           </button>
-          <Offcanvas
-            direction="top"
-            scrollable
-            toggle={function noRefCheck() {}}
-          >
-            <OffcanvasHeader toggle={function noRefCheck() {}}>
-              Offcanvas
-            </OffcanvasHeader>
-            <OffcanvasBody>
-              <strong>This is the Offcanvas body.</strong>
-            </OffcanvasBody>
-          </Offcanvas>
+          <Modal isOpen={modal} toggle={toggle} className="w-[800px]">
+            {/* <div className="flex items-end justify-end py-2">
+                <CgClose size={30} />
+            </div> */}
+             <ModalHeader toggle={toggle}></ModalHeader>
+            <ModalBody>
+              <div>
+                <p className="text-lg font-semibold text-center mt-1">
+                  Don&apos;t Let Financial Stress Hold You Back
+                </p>
+                <p className="text-sm font-medium mb-3 text-center">
+                  Fill out our online application now and get access to up to{" "}
+                  <span className="text-[#2A6877]">$50,000</span>
+                </p>
+                <form
+                  action=""
+                  className="w-full h-auto rounded-xl py-2 px-4"
+                >
+                  <label
+                    htmlFor="firstName"
+                    className="text-[#2A6877] mb-1 font-semibold mt-3"
+                  >
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="First Name"
+                    className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                  />
+
+                  <label
+                    htmlFor="lastName"
+                    className="text-[#2A6877] mb-1 font-semibold mt-3"
+                  >
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Last Name"
+                    className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                  />
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="Email"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="Loan Amount"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Loan Amount
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Loan Amount"
+                      value={loanAmount}
+                      onChange={(e) => handleChange(e, setLoanAmount)}
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="Bank"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Bank
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Bank"
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="Province"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Province
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Province"
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="income-source"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Income Source
+                    </label>
+                    <select
+                      id="income-source"
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    >
+                      <option value="job-income">Job Income</option>
+                      <option value="self-employed">Self-Employed</option>
+                      <option value="benefits">Benefits</option>
+                    </select>
+                  </div>
+                  <div className="flex flex-col">
+                    <label
+                      htmlFor="Monthly Income"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Monthly Income
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="Monthly Income"
+                      value={income}
+                      onChange={(e) => handleChange(e, setIncome)}
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    />
+                  </div>
+
+                  <div className="flex flex-col w-full mt-3">
+                    <label
+                      htmlFor="income-source"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Do you Rent or Own a Home?
+                    </label>
+                    <select
+                      id="income-source"
+                      className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    >
+                      <option value="Owns House">I own a House</option>
+                      <option value="Rents House">I am renting a house</option>
+                    </select>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md"
+                  >
+                    Submit
+                  </button>
+                </form>
+              </div>
+            </ModalBody>
+          </Modal>
         </div>
       </div>
       {/* <div>
