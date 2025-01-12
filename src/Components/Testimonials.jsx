@@ -4,7 +4,7 @@ function Testimonials() {
   return (
     <div className="w-full h-auto py-20 bg-white flex flex-col items-center justify-center">
         <h1 className="text-[#2A6877] text-4xl font-bold mb-20">Testimonials</h1>
-        <div className="flex items-center justify-between gap-20">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-20">
             <div className="w-[300px]">
                 <img src="/assets/male-avatar1.jpg" className="w-[100px] h-[100px] rounded-full object-cover mb-5"/>
                 <p className="font-medium mb-6">&ldquo;I never thought a payday loan could be so easy and stress-free. Thanks to <span className="text-[#2A6877] font-semibold">NullDebt</span> for their transparency!&rdquo;</p>

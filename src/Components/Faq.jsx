@@ -48,23 +48,23 @@ const config = {
 };
 function FaqSection() {
   return (
-    <div className="w-full h-auto py-20 gradient flex flex-col items-center justify-center px-[80px]">
+    <div className="w-full h-auto py-20 gradient flex flex-col items-center justify-center px-[20px] lg:px-[80px]">
       <h1 className="text-[#2A6877] text-2xl font-bold mb-20">
         Frequently Asked Questions
       </h1>
-      <div className="flex gap-10">
+      <div className="flex flex-col lg:flex-row gap-10">
         <div className="w-[300px] flex flex-col items-start justify-start">
           <h1 className="text-[30px] lg:text-[40px] text-[#0a0a0a] font-bold mb-[20px] lg:mb-[40px] text-center lg:text-left">
             Got questions? We are here to assist!
           </h1>
-          <p className="text-[#535353] text-left">
+          <p className="text-[#535353] text-center lg:text-left ">
             Send us an email at{" "}
             <span className="text-[#0a0a0a] underline">
               example@nulldebt.com
             </span>
           </p>
         </div>
-        <div className="flex gap-[90px] w-[50%] lg:w-[700px] flex-wrap">
+        <div className="flex gap-[90px] w-full lg:w-[700px] flex-wrap">
           <Faq data={data} styles={styles} config={config} />
         </div>
       </div>

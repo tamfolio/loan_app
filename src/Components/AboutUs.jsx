@@ -1,9 +1,9 @@
 function AboutUs() {
   return (
-    <div className="w-full h-auto py-20 gradient flex flex-col items-center justify-center px-[150px]">
+    <div className="w-full h-auto py-20 gradient flex flex-col items-center justify-center px-[20px] lg:px-[150px]">
       <h1 className="text-[#2A6877] text-3xl font-bold mb-20">About us</h1>
-      <div className="flex items-start justify-center gap-20">
-        <div className="flex flex-col w-[50%]">
+      <div className="flex flex-col lg:flex-row items-start justify-center gap-20">
+        <div className="flex flex-col w-full lg:w-[50%]">
           <p className="mb-10 font-semibold">
             Welcome to <span className="text-[#2A6877]">NullDebt</span>, your trusted partner in financial relief and
             empowerment. We specialize in providing tailored payday loan

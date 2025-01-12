@@ -7,7 +7,7 @@ function WhyChoose() {
       <h1 className="text-[#2A6877] text-2xl font-bold mb-10">
         Why Choose NullDebt?
       </h1>
-      <div className="flex items-center justify-center gap-10">
+      <div className="flex flex-col lg:flex-row items-center justify-center gap-10">
         <div className="w-[280px] bg-white h-auto rounded-xl flex flex-col items-center py-10 px-2">
           <div className="w-[80px] h-[80px] rounded-full bg-transparent  flex items-center justify-center">
             <FaRocket size={45} className="fill-[#2A6877]"/>
