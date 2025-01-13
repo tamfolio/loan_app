@@ -36,7 +36,7 @@ function Homepage() {
           Fast. Flexible. Reliable Payday Loans for Canadians
         </p>
 
-        <p className="text-xl lg:text-2xl font-semibold mt-3 text-center lg:text-left">
+        <p className="text-xl lg:text-2xl font-semibold mt-3 text-center lg:!text-left w-[100%]">
           Apply Now and Get up to $50,000!
         </p>
         <div className="mt-10 hidden lg:flex flex-col lg:flex-row gap-5">

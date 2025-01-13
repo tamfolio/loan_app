@@ -46,6 +46,8 @@ const config = {
   // arrowIcon: "V",
   // tabFocus: true
 };
+
+
 function FaqSection() {
   return (
     <div className="w-full h-auto py-20 gradient flex flex-col items-center justify-center px-[20px] lg:px-[80px]">
