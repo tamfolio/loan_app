@@ -89,23 +89,23 @@ function Homepage() {
           >
             Get Started <FaArrowRight />
           </button>
-          <Modal isOpen={modal} toggle={toggle} className="w-[800px]">
+          <Modal isOpen={modal} toggle={toggle} className="w-[95%] lg:w-[800px]">
             {/* <div className="flex items-end justify-end py-2">
                 <CgClose size={30} />
             </div> */}
              <ModalHeader toggle={toggle}></ModalHeader>
             <ModalBody>
               <div>
-                <p className="text-lg font-semibold text-center mt-1">
+                <p className="text-md lg:text-lg font-semibold text-center mt-1">
                   Don&apos;t Let Financial Stress Hold You Back
                 </p>
-                <p className="text-sm font-medium mb-3 text-center">
+                <p className="text-sm lg:text-lg font-medium mb-3 text-center">
                   Fill out our online application now and get access to up to{" "}
                   <span className="text-[#2A6877]">$50,000</span>
                 </p>
                 <form
                   action=""
-                  className="w-full h-auto rounded-xl py-2 px-4"
+                  className="w-full h-auto rounded-xl py-2 px-1 lg:px-4"
                 >
                   <label
                     htmlFor="firstName"
