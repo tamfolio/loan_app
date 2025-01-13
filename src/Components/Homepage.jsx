@@ -75,7 +75,7 @@ function Homepage() {
               $
             </span>
             <input
-              type="number"
+              type="text"
               placeholder="$50,000"
               value={loanAmount}
               onChange={(e) => handleChange(e, setLoanAmount)}

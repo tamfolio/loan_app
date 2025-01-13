@@ -54,7 +54,7 @@ function FaqSection() {
       </h1>
       <div className="flex flex-col lg:flex-row gap-10">
         <div className="w-[300px] flex flex-col items-start justify-start">
-          <h1 className="text-[30px] lg:text-[40px] text-[#0a0a0a] font-bold mb-[20px] lg:mb-[40px] text-center lg:text-left">
+          <h1 className="text-[20px] lg:text-[40px] text-[#0a0a0a] font-bold mb-[20px] lg:mb-[40px] text-center lg:text-left">
             Got questions? We are here to assist!
           </h1>
           <p className="text-[#535353] text-center lg:text-left ">
