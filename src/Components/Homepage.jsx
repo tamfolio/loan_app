@@ -64,8 +64,8 @@ function Homepage() {
         className="w-[full] lg:w-[500px] flex items-center justify-center flex-col border-solid border-[1px] border-[#c9cacd] px-4 rounded-xl py-10"
         style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}
       >
-        <FaCircleDollarToSlot size={100} className="mb-10" />
-        <h1 className="text-center text-2xl text-[#2a6877] font-semibold mb-5">
+        <FaCircleDollarToSlot size={100} className="mb-3 lg:mb-10" />
+        <h1 className="text-center text-2xl text-[#2a6877] font-semibold mb-2 lg:mb-5">
           How much do you need?
         </h1>
 
@@ -85,11 +85,15 @@ function Homepage() {
 
           <button
             type="submit"
-            className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3"
-            onClick={toggle}
+            className={`w-full mt-2 lg:mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3 ${
+              !loanAmount ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            onClick={loanAmount ? toggle : undefined}
+            disabled={!loanAmount} // Optional for accessibility
           >
             Get Started <FaArrowRight />
           </button>
+
           <Modal
             isOpen={modal}
             toggle={toggle}
