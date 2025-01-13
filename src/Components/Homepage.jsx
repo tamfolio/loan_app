@@ -30,12 +30,13 @@ function Homepage() {
   };
 
   return (
-    <div className="w-[100%] h-auto min-h-[90vh] bg-white px-[20px] lg:pl-[150px] py-[30px] lg:py-[100px] flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-between gap-10">
-      <div className="">
-        <p className="text-2xl lg:text-4xl text-[#2A6877] font-bold w-full lg:w-[500px] text-center lg:text-left">
+    <div className="w-[100%] h-auto min-h-[90vh] bg-white px-[20px] lg:pl-[150px] py-[30px] lg:py-[100px] flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-10">
+      <div className="flex flex-col items-start justify-start">
+        <p className="text-2xl lg:text-4xl text-[#2A6877] font-bold w-full lg:w-[500px] text-center lg:!text-left">
           Fast. Flexible. Reliable Payday Loans for Canadians
         </p>
-        <p className="text-xl lg:text-2xl font-semibold mt-3 text-center">
+
+        <p className="text-xl lg:text-2xl font-semibold mt-3 text-center lg:text-left">
           Apply Now and Get up to $50,000!
         </p>
         <div className="mt-10 hidden lg:flex flex-col lg:flex-row gap-5">
@@ -59,8 +60,8 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div 
-        className="w-[full] flex items-center justify-center flex-col border-solid border-[1px] border-[#c9cacd] px-4 rounded-xl py-10"
+      <div
+        className="w-[full] lg:w-[500px] flex items-center justify-center flex-col border-solid border-[1px] border-[#c9cacd] px-4 rounded-xl py-10"
         style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}
       >
         <FaCircleDollarToSlot size={100} className="mb-10" />
@@ -89,11 +90,15 @@ function Homepage() {
           >
             Get Started <FaArrowRight />
           </button>
-          <Modal isOpen={modal} toggle={toggle} className="w-[95%] lg:w-[800px]">
+          <Modal
+            isOpen={modal}
+            toggle={toggle}
+            className="w-[95%] lg:w-[800px]"
+          >
             {/* <div className="flex items-end justify-end py-2">
                 <CgClose size={30} />
             </div> */}
-             <ModalHeader toggle={toggle}></ModalHeader>
+            <ModalHeader toggle={toggle}></ModalHeader>
             <ModalBody>
               <div>
                 <p className="text-md lg:text-lg font-semibold text-center mt-1">
@@ -101,7 +106,7 @@ function Homepage() {
                 </p>
                 <p className="text-sm lg:text-lg font-medium mb-3 text-center">
                   Fill out our online application now and get access to up to{" "}
-                  <span className="text-[#2A6877]">$50,000</span>
+                  <span className="text-[#2A6877] font-bold">$50,000</span>
                 </p>
                 <form
                   action=""

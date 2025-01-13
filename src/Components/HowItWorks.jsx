@@ -1,8 +1,8 @@
 function HowItWorks() {
   return (
-    <div className="w-full h-auto py-20 bg-white flex flex-col items-center justify-center lg:px-[80px] px-[20px]">
+    <div className="w-full h-auto py-10 lg:py-20 bg-white flex flex-col items-center justify-center lg:px-[80px] px-[20px]">
       <h1 className="text-[#2A6877] text-2xl font-bold">How it Works</h1>
-      <p className="mb-20">
+      <p className="mb-20 text-center lg:!text-left">
         Step by Step guide on how to access loans from Nulldebt
       </p>
       <div className="flex items-start justify-start w-[100%]">
