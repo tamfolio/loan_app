@@ -30,7 +30,7 @@ function Homepage() {
   };
 
   return (
-    <div className="w-[100%] h-auto min-h-[90vh] bg-white px-[20px] lg:pl-[150px] py-[30px] lg:py-[100px] flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-10">
+    <div className="w-[100%] h-auto min-h-[90vh] bg-white px-[20px] lg:pl-[150px] py-[30px] lg:!py-[100px] flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-between gap-10">
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl lg:text-4xl text-[#2A6877] font-bold w-full lg:w-[500px] text-center lg:!text-left">
           Fast. Flexible. Reliable Payday Loans for Canadians
@@ -61,16 +61,16 @@ function Homepage() {
         </div>
       </div>
       <div
-        className="w-[full] lg:w-[500px] flex items-center justify-center flex-col border-solid border-[1px] border-[#c9cacd] px-4 rounded-xl py-10"
+        className="w-[full] lg:!w-[400px] flex items-center justify-center flex-col border-solid border-[1px] border-[#c9cacd] px-4 rounded-xl py-10"
         style={{ boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)" }}
       >
-        <FaCircleDollarToSlot size={100} className="mb-3 lg:mb-10" />
-        <h1 className="text-center text-2xl text-[#2a6877] font-semibold mb-2 lg:mb-5">
+        <FaCircleDollarToSlot size={100} className="mb-3 lg:!mb-10" />
+        <h1 className="text-center text-2xl text-[#2a6877] font-semibold mb-2 lg:!mb-5">
           How much do you need?
         </h1>
 
         <div className="flex flex-col">
-          <div className="flex mb-2">
+          <div className="flex mb-2 lg:mb-5">
             <span className="flex items-center justify-center w-[50px] h-auto border-[1px] border-solid border-gray-200 font-bold">
               $
             </span>
@@ -82,14 +82,13 @@ function Homepage() {
               className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2 outline-none"
             />
           </div>
-
           <button
             type="submit"
-            className={`w-full mt-2 lg:mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3 ${
+            className={`w-full mt-2 lg:!mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3 ${
               !loanAmount ? "opacity-50 cursor-not-allowed" : ""
             }`}
             onClick={loanAmount ? toggle : undefined}
-            disabled={!loanAmount} // Optional for accessibility
+            disabled={!loanAmount}
           >
             Get Started <FaArrowRight />
           </button>
