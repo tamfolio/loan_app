@@ -9,7 +9,7 @@ const data = {
     {
       title: "How long does the approval process take?",
       content:
-        "Answer: The approval process is quick and straightforward. Once you submit your application, you can receive a decision within minutes, and funds are typically transferred within 24 hours after approval.",
+        "The approval process is quick and straightforward. Once you submit your application, you can receive a decision within minutes, and funds are typically transferred within 24 hours after approval.",
     },
     {
       title: "Will my credit score affect my application?",
@@ -55,11 +55,11 @@ function FaqSection() {
         Frequently Asked Questions
       </h1>
       <div className="flex flex-col lg:flex-row gap-10">
-        <div className="w-[300px] flex flex-col items-start justify-start">
+        <div className="lg:w-[300px] flex flex-col items-center justify-center lg:items-start lg:justify-start">
           <h1 className="text-[20px] lg:text-[40px] text-[#0a0a0a] font-bold mb-[20px] lg:mb-[40px] text-center lg:text-left">
             Got questions? We are here to assist!
           </h1>
-          <p className="text-[#535353] text-center lg:text-left ">
+          <p className="text-[#535353] text-center lg:text-left w-full">
             Send us an email at{" "}
             <span className="text-[#0a0a0a] underline">
               example@nulldebt.com

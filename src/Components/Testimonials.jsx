@@ -14,7 +14,7 @@ function Testimonials() {
             <div className="w-[300px]">
                 <img src="/assets/female-avatar.jpg" className="w-[100px] h-[100px] rounded-full object-cover mb-5"/>
                 <p className="font-medium mb-6">&ldquo;<span className="text-[#2A6877] font-semibold">NullDebt</span> was a lifesaver! The process was smooth, and I got the funds the same day. Highly recommend!&rdquo;</p>
-                <p className="font-bold">Sarah L..</p>
+                <p className="font-bold">Sarah L.</p>
                 <p className="text-gray-400 font-medium">Toronto</p>
             </div>
             <div className="w-[300px]">
