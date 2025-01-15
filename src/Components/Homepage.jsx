@@ -4,10 +4,17 @@ import { BsDatabaseFillLock } from "react-icons/bs";
 import { useState } from "react";
 import { FaCircleDollarToSlot, FaArrowRight } from "react-icons/fa6";
 import { Modal, ModalBody, ModalHeader } from "reactstrap";
-
+//https://hooks.zapier.com/hooks/catch/21196050/2zvhly4/
 function Homepage() {
   const [loanAmount, setLoanAmount] = useState("");
   const [income, setIncome] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [bank, setBank] = useState("");
+  const [province, setProvince] = useState("");
+  const [incomeSource, setIncomeSource] = useState("");
+  const [homeStatus, setHomeStatus] = useState("");
   const [modal, setModal] = useState(false);
 
   const toggle = () => setModal(!modal);
@@ -26,6 +33,39 @@ function Homepage() {
       setState(formattedValue); // Use the passed state setter function
     } else {
       setState(""); // Allow empty input
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = {
+      firstName,
+      lastName,
+      email,
+      loanAmount,
+      bank,
+      province,
+      incomeSource,
+      income,
+      homeStatus,
+    };
+
+    try {
+      await fetch("https://hooks.zapier.com/hooks/catch/21196050/2k3qpst/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      console.log(formData)
+
+      alert("Form submitted successfully!");
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit the form. Please try again.");
     }
   };
 
@@ -112,7 +152,7 @@ function Homepage() {
                   <span className="text-[#2A6877] font-bold">$50,000</span>
                 </p>
                 <form
-                  action=""
+                  onSubmit={handleSubmit}
                   className="w-full h-auto rounded-xl py-2 px-1 lg:px-4"
                 >
                   <label
@@ -125,6 +165,8 @@ function Homepage() {
                     type="text"
                     placeholder="First Name"
                     className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    required
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
 
                   <label
@@ -136,7 +178,9 @@ function Homepage() {
                   <input
                     type="text"
                     placeholder="Last Name"
+                    onChange={(e) => setLastName(e.target.value)}
                     className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                    required
                   />
                   <div className="flex flex-col">
                     <label
@@ -148,7 +192,9 @@ function Homepage() {
                     <input
                       type="email"
                       placeholder="Email"
+                      onChange={(e) => setEmail(e.target.value)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     />
                   </div>
                   <div className="flex flex-col">
@@ -164,6 +210,7 @@ function Homepage() {
                       value={loanAmount}
                       onChange={(e) => handleChange(e, setLoanAmount)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     />
                   </div>
                   <div className="flex flex-col">
@@ -176,7 +223,9 @@ function Homepage() {
                     <input
                       type="text"
                       placeholder="Bank"
+                      onChange={(e) => setBank(e.target.value)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     />
                   </div>
                   <div className="flex flex-col">
@@ -189,7 +238,9 @@ function Homepage() {
                     <input
                       type="text"
                       placeholder="Province"
+                      onChange={(e) => setProvince(e.target.value)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     />
                   </div>
                   <div className="flex flex-col">
@@ -201,7 +252,9 @@ function Homepage() {
                     </label>
                     <select
                       id="income-source"
+                      onChange={(e) => setIncomeSource(e.target.value)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     >
                       <option value="job-income">Job Income</option>
                       <option value="self-employed">Self-Employed</option>
@@ -221,6 +274,7 @@ function Homepage() {
                       value={income}
                       onChange={(e) => handleChange(e, setIncome)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     />
                   </div>
 
@@ -233,7 +287,9 @@ function Homepage() {
                     </label>
                     <select
                       id="income-source"
+                      onChange={(e) => setHomeStatus(e.target.value)}
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
+                      required
                     >
                       <option value="Owns House">I own a House</option>
                       <option value="Rents House">I am renting a house</option>
