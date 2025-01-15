@@ -16,6 +16,11 @@ function Homepage() {
   const [incomeSource, setIncomeSource] = useState("");
   const [homeStatus, setHomeStatus] = useState("");
   const [modal, setModal] = useState(false);
+  const [successModal, setSuccessModal] = useState(false);
+  const [errorModal, setErrorModal] = useState(false);
+
+  const toggleSuccessModal = () => setSuccessModal(!successModal);
+  const toggleErrorModal = () => setErrorModal(!errorModal);
 
   const toggle = () => setModal(!modal);
 
@@ -34,6 +39,23 @@ function Homepage() {
     } else {
       setState(""); // Allow empty input
     }
+  };
+
+  const handleCloseSuccess = () => {
+    resetFormData(); // Reset form data when closing the success modal
+    toggleSuccessModal(); // Close the success modal
+  };
+
+  const resetFormData = () => {
+    setLoanAmount("");
+    setIncome("");
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setBank("");
+    setProvince("");
+    setIncomeSource("");
+    setHomeStatus("");
   };
 
   const handleSubmit = async (e) => {
@@ -60,12 +82,14 @@ function Homepage() {
         body: JSON.stringify(formData),
       });
 
-      console.log(formData)
+      console.log(formData);
 
-      alert("Form submitted successfully!");
+      toggleSuccessModal();
+      resetFormData();
+      toggle();
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to submit the form. Please try again.");
+      toggleErrorModal();
     }
   };
 
@@ -303,6 +327,45 @@ function Homepage() {
                   </button>
                 </form>
               </div>
+            </ModalBody>
+          </Modal>
+
+          <Modal
+            isOpen={successModal}
+            toggle={handleCloseSuccess}
+            className="w-[95%] lg:w-[400px]"
+          >
+            <ModalHeader toggle={handleCloseSuccess}>Success</ModalHeader>
+            <ModalBody>
+              <p className="text-center text-lg font-semibold">
+                Your form has been submitted successfully!
+              </p>
+              <button
+                onClick={handleCloseSuccess}
+                className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md"
+              >
+                Close
+              </button>
+            </ModalBody>
+          </Modal>
+
+          {/* Error Modal */}
+          <Modal
+            isOpen={errorModal}
+            toggle={toggleErrorModal}
+            className="w-[95%] lg:w-[400px]"
+          >
+            <ModalHeader toggle={toggleErrorModal}>Error</ModalHeader>
+            <ModalBody>
+              <p className="text-center text-lg font-semibold">
+                There was an error submitting your form. Please try again.
+              </p>
+              <button
+                onClick={toggleErrorModal}
+                className="w-full mt-5 bg-red-600 py-2 text-white rounded-md"
+              >
+                Close
+              </button>
             </ModalBody>
           </Modal>
         </div>
