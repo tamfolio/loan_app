@@ -83,7 +83,7 @@ function TermsOfUse() {
             Missing or delaying payments may adversely affect your credit score.
             Only consider loan terms you can meet on schedule, and if you
             encounter difficulty making a payment, promptly contact your lender
-            or lending partner to discuss alternative arrangements.
+            or lending partner to discuss alternative arrangements.
           </p>
         </div>
       </div>

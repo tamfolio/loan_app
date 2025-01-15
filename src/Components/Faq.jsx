@@ -62,7 +62,7 @@ function FaqSection() {
           <p className="text-[#535353] text-center lg:text-left w-full">
             Send us an email at{" "}
             <span className="text-[#0a0a0a] underline">
-              example@nulldebt.com
+                info@nulldebtcanada.com
             </span>
           </p>
         </div>
