@@ -3,8 +3,8 @@ import { FaCalendarDays } from "react-icons/fa6";
 import { BsDatabaseFillLock } from "react-icons/bs";
 import { useState } from "react";
 import { FaCircleDollarToSlot, FaArrowRight } from "react-icons/fa6";
-import { Modal, ModalBody, ModalHeader } from "reactstrap";
-//https://hooks.zapier.com/hooks/catch/21196050/2zvhly4/
+import { Modal, ModalBody, ModalHeader, Spinner } from "reactstrap";
+
 function Homepage() {
   const [loanAmount, setLoanAmount] = useState("");
   const [income, setIncome] = useState("");
@@ -18,6 +18,7 @@ function Homepage() {
   const [modal, setModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const toggleSuccessModal = () => setSuccessModal(!successModal);
   const toggleErrorModal = () => setErrorModal(!errorModal);
@@ -73,6 +74,7 @@ function Homepage() {
       homeStatus,
     };
 
+    setLoading(true);
     try {
       await fetch("https://nulldebt-backend.onrender.com/proxy", {
         method: "POST",
@@ -87,9 +89,11 @@ function Homepage() {
       toggleSuccessModal();
       resetFormData();
       toggle();
+      setLoading(false);
     } catch (error) {
       console.error("Error submitting form:", error);
       toggleErrorModal();
+      setLoading(false);
     }
   };
 
@@ -280,6 +284,9 @@ function Homepage() {
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
                       required
                     >
+                      <option>
+                        Select an Option
+                      </option>
                       <option value="job-income">Job Income</option>
                       <option value="self-employed">Self-Employed</option>
                       <option value="benefits">Benefits</option>
@@ -315,15 +322,28 @@ function Homepage() {
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
                       required
                     >
+                      <option>
+                        Select an Option
+                      </option>
                       <option value="Owns House">I own a House</option>
                       <option value="Rents House">I am renting a house</option>
                     </select>
                   </div>
                   <button
                     type="submit"
-                    className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md"
+                    className={`w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center ${
+                      loading ? "opacity-70 cursor-not-allowed" : ""
+                    }`}
+                    disabled={loading}
                   >
-                    Submit
+                    {loading ? (
+                      <>
+                        <Spinner color="light" size="sm" />
+                        <span className="ml-2">Loading...</span>
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                 </form>
               </div>
@@ -370,153 +390,6 @@ function Homepage() {
           </Modal>
         </div>
       </div>
-      {/* <div>
-        <p className="text-xl font-bold">Don&apos;t Let Financial Stress Hold You Back</p>
-        <p className="text-md font-semibold mb-3">
-          Fill out our online application now and get access to up to{" "}
-          <span className="text-[#2A6877]">$50,000</span>
-        </p>
-        <form
-          action=""
-          className="w-[600px] h-auto border-solid border-[1px] border-[#F0F1F3] rounded-xl p-5"
-        >
-          <div className="flex gap-3 items-center justify-between">
-            <div className="flex flex-col">
-              <label
-                htmlFor="firstName"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                First Name
-              </label>
-              <input
-                type="text"
-                placeholder="First Name"
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label
-                htmlFor="lastName"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Last Name
-              </label>
-              <input
-                type="text"
-                placeholder="Last Name"
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-          </div>
-          <div className="flex gap-3 items-center justify-between mt-3">
-            <div className="flex flex-col">
-              <label
-                htmlFor="Email"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="Email"
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label
-                htmlFor="Loan Amount"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Loan Amount
-              </label>
-              <input
-                type="text"
-                placeholder="Loan Amount"
-                value={loanAmount}
-                onChange={(e) => handleChange(e, setLoanAmount)}
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-          </div>
-          <div className="flex gap-3 items-center justify-between mt-3">
-            <div className="flex flex-col">
-              <label
-                htmlFor="Bank"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Bank
-              </label>
-              <input
-                type="text"
-                placeholder="Bank"
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-            <div className="flex flex-col">
-              <label
-                htmlFor="Province"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Province
-              </label>
-              <input
-                type="text"
-                placeholder="Province"
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-          </div>
-          <div className="flex gap-3 items-center justify-between mt-3">
-            <div className="flex flex-col">
-              <label
-                htmlFor="income-source"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Income Source
-              </label>
-              <select
-                id="income-source"
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              >
-                <option value="job-income">Job Income</option>
-                <option value="self-employed">Self-Employed</option>
-                <option value="benefits">Benefits</option>
-              </select>
-            </div>
-            <div className="flex flex-col">
-              <label
-                htmlFor="Monthly Income"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Monthly Income
-              </label>
-              <input
-                type="text"
-                placeholder="Monthly Income"
-                value={income}
-                onChange={(e) => handleChange(e, setIncome)}
-                className="w-[250px] border-[1px] border-solid border-gray-200 rounded-md p-2"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col w-full mt-3">
-              <label
-                htmlFor="income-source"
-                className="text-[#2A6877] mb-1 font-semibold"
-              >
-                Do you Rent or Own a Home?
-              </label>
-              <select
-                id="income-source"
-                className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
-              >
-                <option value="Owns House">I own a House</option>
-                <option value="Rents House">I am renting a house</option>
-              </select>
-            </div>
-            <button type="submit" className="w-full mt-5 bg-[#2a6877] py-2 text-white rounded-md">Submit</button>
-        </form>
-      </div> */}
       <div></div>
     </div>
   );
