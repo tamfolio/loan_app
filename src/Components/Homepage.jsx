@@ -74,7 +74,7 @@ function Homepage() {
     };
 
     try {
-      await fetch("https://hooks.zapier.com/hooks/catch/21196050/2k3qpst/", {
+      await fetch("https://nulldebt-backend.onrender.com/proxy", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
