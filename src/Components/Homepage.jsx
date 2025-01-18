@@ -25,6 +25,8 @@ function Homepage() {
 
   const toggle = () => setModal(!modal);
 
+  const gmtDateTime = new Date().toUTCString();
+
   const handleChange = (e, setState) => {
     // Get raw input value and strip non-numeric characters except commas
     let rawValue = e.target.value.replace(/[^0-9]/g, "");
@@ -72,6 +74,7 @@ function Homepage() {
       incomeSource,
       income,
       homeStatus,
+      timestamp: gmtDateTime
     };
 
     setLoading(true);
