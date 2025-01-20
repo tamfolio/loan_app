@@ -4,6 +4,8 @@ import { BsDatabaseFillLock } from "react-icons/bs";
 import { useState } from "react";
 import { FaCircleDollarToSlot, FaArrowRight } from "react-icons/fa6";
 import { Modal, ModalBody, ModalHeader, Spinner } from "reactstrap";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 function Homepage() {
   const [loanAmount, setLoanAmount] = useState("");
@@ -19,6 +21,7 @@ function Homepage() {
   const [successModal, setSuccessModal] = useState(false);
   const [errorModal, setErrorModal] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [phoneNumber,setPhoneNumber] = useState("")
 
   const toggleSuccessModal = () => setSuccessModal(!successModal);
   const toggleErrorModal = () => setErrorModal(!errorModal);
@@ -57,9 +60,24 @@ function Homepage() {
     setEmail("");
     setBank("");
     setProvince("");
+    setPhoneNumber("");
     setIncomeSource("");
     setHomeStatus("");
   };
+
+  const formatPhoneNumber = (phone) => {
+    // Remove all non-numeric characters
+    const cleaned = phone.replace(/\D/g, "");
+    // Format the number
+    const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{4})$/);
+    if (match) {
+      return `+${match[1]} (${match[2]}) ${match[3]}-${match[4]}`;
+    }
+    return phone; // Return original if it doesn't match the expected pattern
+  };
+
+
+  const cleanPhoneNumber = phoneNumber.replace(/[^\d+]/g, "");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -73,8 +91,9 @@ function Homepage() {
       province,
       incomeSource,
       income,
+      phoneNumber: cleanPhoneNumber,
       homeStatus,
-      timestamp: gmtDateTime
+      timestamp: gmtDateTime,
     };
 
     setLoading(true);
@@ -245,6 +264,20 @@ function Homepage() {
                     />
                   </div>
                   <div className="flex flex-col">
+                  <label
+                      htmlFor="Bank"
+                      className="text-[#2A6877] mb-1 font-semibold mt-3"
+                    >
+                      Phone Number
+                    </label>
+                  <PhoneInput
+                    country={"ca"}
+                    value={phoneNumber}
+                    countryCodeEditable={false}
+                    onChange={(value) => setPhoneNumber(value)}
+                  />
+                  </div>
+                  <div className="flex flex-col">
                     <label
                       htmlFor="Bank"
                       className="text-[#2A6877] mb-1 font-semibold mt-3"
@@ -287,9 +320,7 @@ function Homepage() {
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
                       required
                     >
-                      <option>
-                        Select an Option
-                      </option>
+                      <option>Select an Option</option>
                       <option value="job-income">Job Income</option>
                       <option value="self-employed">Self-Employed</option>
                       <option value="benefits">Benefits</option>
@@ -325,9 +356,7 @@ function Homepage() {
                       className="w-full border-[1px] border-solid border-gray-200 rounded-md p-2"
                       required
                     >
-                      <option>
-                        Select an Option
-                      </option>
+                      <option>Select an Option</option>
                       <option value="Owns House">I own a House</option>
                       <option value="Rents House">I am renting a house</option>
                     </select>
