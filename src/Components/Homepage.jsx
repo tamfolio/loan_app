@@ -52,6 +52,9 @@ function Homepage() {
     toggleSuccessModal(); // Close the success modal
   };
 
+
+
+
   const resetFormData = () => {
     setLoanAmount("");
     setIncome("");
@@ -65,16 +68,14 @@ function Homepage() {
     setHomeStatus("");
   };
 
-  const formatPhoneNumber = (phone) => {
-    // Remove all non-numeric characters
-    const cleaned = phone.replace(/\D/g, "");
-    // Format the number
-    const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-      return `+${match[1]} (${match[2]}) ${match[3]}-${match[4]}`;
-    }
-    return phone; // Return original if it doesn't match the expected pattern
-  };
+  // const formatPhoneNumber = (phone) => {
+  //   const cleaned = phone.replace(/\D/g, "");
+  //   const match = cleaned.match(/^(\d{1})(\d{3})(\d{3})(\d{4})$/);
+  //   if (match) {
+  //     return `+${match[1]} (${match[2]}) ${match[3]}-${match[4]}`;
+  //   }
+  //   return phone; 
+  // };
 
 
   const cleanPhoneNumber = phoneNumber.replace(/[^\d+]/g, "");
@@ -106,7 +107,14 @@ function Homepage() {
         body: JSON.stringify(formData),
       });
 
-      console.log(formData);
+      if (window.fbq) {
+        window.fbq("track", "Lead", {
+          content_name: `${email} ${firstName} ${cleanPhoneNumber}`,
+          value: loanAmount.replace(/[^0-9]/g, ""),
+          currency: "USD",
+        });
+      }
+
 
       toggleSuccessModal();
       resetFormData();
@@ -174,7 +182,7 @@ function Homepage() {
           </div>
           <button
             type="submit"
-            className={`w-full mt-2 lg:!mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3 ${
+            className={`w-full mt-2 lg:!mt-5 bg-[#2a6877] py-2 text-white rounded-md flex items-center justify-center gap-3  ${
               !loanAmount ? "opacity-50 cursor-not-allowed" : ""
             }`}
             onClick={loanAmount ? toggle : undefined}
