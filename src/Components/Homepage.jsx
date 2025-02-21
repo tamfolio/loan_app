@@ -6,7 +6,6 @@ import { BsDatabaseFillLock } from "react-icons/bs";
 // import { Modal, ModalBody, ModalHeader, Spinner } from "reactstrap";
 // import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
-import LeadScoutForm from "./LeadScoutForm";
 import { Link } from "react-router-dom";
 
 function Homepage() {
