@@ -153,7 +153,7 @@ function Homepage() {
             <p className="font-semibold">Accessible Anywhere in Canada</p>
           </div>
         </div>
-        <Link to='/get-started' className="mt-5 lg:mt-10">
+        <Link to='/get-started?source=fb&amount=500&affiliate_sub1=b2c&affiliate_sub2=calls' className="mt-5 lg:mt-10">
           <span className="bg-[#2A6877] text-white px-5 py-2 font-semibold rounded-md ">
             Get Started
           </span>
