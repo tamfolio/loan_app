@@ -1,5 +1,6 @@
 import "./App.css";
 import AboutUs from "./Components/AboutUs";
+import CreditCheck from "./Components/CreditCheck";
 import FaqSection from "./Components/Faq";
 import Footer from "./Components/Footer";
 import Homepage from "./Components/Homepage";
@@ -14,6 +15,7 @@ function App() {
       <Navbar/>
       <Homepage/>
       <WhyChoose/>
+      <CreditCheck/>
       <HowItWorks/>
       <AboutUs/>
       <Testimonials/>

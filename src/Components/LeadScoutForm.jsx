@@ -12,6 +12,8 @@ const LeadScoutForm = () => {
     const affiliate_sub2 = urlParams.get("affiliate_sub2");
     const affiliate_sub5 = urlParams.get("affiliate_sub5");
 
+    console.log(source,affiliate_sub1)
+
     // Configure the LeadScout form
     const leadScoutFormConfig = {
       affiliateCode: id || "kX4p3tPa",
