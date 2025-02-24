@@ -7,6 +7,7 @@ import { BsDatabaseFillLock } from "react-icons/bs";
 // import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import { Link } from "react-router-dom";
+import CreditCheck from "./CreditCheck";
 
 function Homepage() {
   // const [loanAmount, setLoanAmount] = useState("");
@@ -124,7 +125,7 @@ function Homepage() {
   // };
 
   return (
-    <div className="w-[100%] h-auto min-h-[50vh] lg:min-h-[90vh] bg-white px-[20px] py-[60px] lg:!py-[100px] flex flex-col lg:flex-row items-center lg:items-center justify-center lg:justify-center gap-10">
+    <div className="w-[100%] h-[100vh] min-h-[50vh] lg:min-h-[90vh] bg-white px-[10px] py-[60px] lg:!py-[100px] flex flex-col lg:flex-row items-center lg:items-center justify-start lg:justify-center gap-10 relative">
       <div className="flex flex-col items-center justify-center">
         <p className="text-2xl lg:text-6xl text-[#2A6877] font-bold w-full lg:w-[900px] text-center lg:!text-center">
           Fast. Flexible. Reliable Payday Loans for Canadians
@@ -158,6 +159,9 @@ function Homepage() {
             Get Started
           </span>
         </Link>
+      </div>
+      <div className="lg:absolute bottom-5 right-5">
+        <CreditCheck/>
       </div>
       {/* <div className="w-[full] lg:!w-[400px]">
         <LeadScoutForm/>
