@@ -19,6 +19,8 @@
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
+
+    <!-- Meta Pixel Base Code -->
     <script>
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
@@ -37,25 +39,54 @@
         t.src = v;
         s = b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js"
-      );
+      })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+
       fbq("init", "1798032770743280");
       fbq("track", "PageView");
     </script>
   </head>
+
   <body>
     <div id="root"></div>
-    <noscript
-      ><img
+    
+    <noscript>
+      <img
         height="1"
         width="1"
         style="display: none"
         src="https://www.facebook.com/tr?id=1798032770743280&ev=PageView&noscript=1"
-    /></noscript>
+      />
+    </noscript>
+
+    <!-- Custom Script for fbc Parameter -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        function getFbc() {
+          const match = document.cookie.match(/_fbc=([^;]*)/);
+          return match ? match[1] : null;
+        }
+
+        function getCreationTime() {
+          const fbc = getFbc();
+          if (fbc) {
+            const parts = fbc.split(".");
+            if (parts.length >= 3) {
+              let creationTime = parseInt(parts[1], 10);
+              return creationTime < 1000000000000 ? creationTime * 1000 : creationTime;
+            }
+          }
+          return Date.now(); // Fallback to current timestamp (milliseconds)
+        }
+
+        if (typeof fbq !== "undefined") {
+          fbq("track", "PageView", {
+            fbc: getFbc(),
+            creationTime: getCreationTime()
+          });
+        }
+      });
+    </script>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
